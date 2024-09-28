@@ -30,7 +30,7 @@ def std_loops(x):
     for i in x:                       # Summarizing sequence
         sum_lst = sum_lst + i
 
-    m = (1/N) * sum_lst                     #calculate the mean x
+    m = (1/N) * sum_lst                     #calculate the mean m
 
     #Square all elements in num_list and sum together
 
@@ -93,8 +93,10 @@ def main():
     looped = std_loops(x)
 
     builtin = std_builtin(x)
+
+    std_function = np.std(x)
     
-    print(f'Deviation by loops is {looped}, and by built in functions {builtin}')
+    print(f'Deviation by loops is {looped}, and by built in functions {builtin} and using the function from numpy {std_function}')
     return looped, builtin
 
 if __name__ == "__main__":
