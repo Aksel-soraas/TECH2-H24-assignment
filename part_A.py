@@ -64,4 +64,26 @@ def std_builtin(x):
         Standard deviation of the list of numbers.
     """
 
-    # sum fuction print(sum_sequence.sum())
+    # Define variables to be used in the function
+    num_lst = [1, 2, 3, 4, 5]
+    sum_lst = sum(num_lst)
+    num_lst_squared = []
+    N = len(num_lst)
+
+    x = (1/N) * sum_lst                     #calculate the mean x
+
+        #Square all elements in num_list and sum together
+
+    for i in num_lst:
+        num_lst_squared.append(num_lst[i-1]**2)
+        sum_lst_squared = sum(num_lst_squared)
+        # Calculate the mean of suqres S
+    S = (1/N) * sum_lst_squared
+
+    O2 = S - x**2                           # Computing the variance O2
+
+    O = sqrt(O2)                            # computing the standard deviation O 
+
+def main():
+
+# sum fuction print(sum_sequence.sum())
