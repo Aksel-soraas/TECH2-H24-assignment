@@ -25,10 +25,11 @@ def std_loops(x):
     sum_lst = 0                             # Sum of list
     num_lst_squared = []                    # Sequence squared to be used in order to calculate the mean of squares
     sum_lst_squared = 0                     # Sum of the list squared
-    N = x[-1]                         # Last number in list
-    
-    for i in x:                       # Summarizing sequence
+    N = 0                                   # Will be used to define elements
+
+    for i in x:                       # Summarizing sequence and counting elements
         sum_lst = sum_lst + i
+        N += 1
 
     m = (1/N) * sum_lst                     #calculate the mean m
 
@@ -45,7 +46,7 @@ def std_loops(x):
 
     O2 = S - m**2                           # Computing the variance O2
 
-    O = sqrt(O2)                            # computing the standard deviation O 
+    O = sqrt(O2)                       # computing the standard deviation O 
 
     return O
 
