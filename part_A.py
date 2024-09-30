@@ -20,35 +20,33 @@ def std_loops(x):
         Standard deviation of the list of numbers.
     """
 
-    # Define variables to be used in the function
+    # Raise value-error if input is an empty list.
+    if len(x) == 0:
+        raise ValueError('Empty sequences are not supported')
+    
 
-    sum_lst = 0                             # Sum of list
-    num_lst_squared = []                    # Sequence squared to be used in order to calculate the mean of squares
-    sum_lst_squared = 0                     # Sum of the list squared
-    N = 0                                   # Will be used to define elements
+    # Define variables used in the function
+    sum_lst = 0                             
+    sqrt_lst = []                    
+    sqrt_sum= 0                    
+    N = 0                                   
 
-    for i in x:                       # Summarizing sequence and counting elements
+    for i in x:                         # Summarizing sequence and counting elements
         sum_lst = sum_lst + i
         N += 1
 
-    m = (1/N) * sum_lst                     #calculate the mean m
+    mean = (1/N) * sum_lst              # Calculate the mean
 
-    #Square all elements in num_list and sum together
+    for i in x:                         # Square all elements in num_list and sum together
+        sqrt_lst.append(i**2)
+    for i in sqrt_lst:
+        sqrt_sum = sqrt_sum + i
 
-    for i in x:
-        num_lst_squared.append(i**2)
-    
-    for i in num_lst_squared:
-        sum_lst_squared = sum_lst_squared + i
+    S = (1/N) * sqrt_sum                # Calculate the mean of the squared list (S)
+    var = S - mean**2                   # Computing the variance (var)
+    sd = sqrt(var)                      # Computing the standard deviation (sd)
 
-    # Calculate the mean of suqres S
-    S = (1/N) * sum_lst_squared
-
-    O2 = S - m**2                           # Computing the variance O2
-
-    O = sqrt(O2)                       # computing the standard deviation O 
-
-    return O
+    return sd
 
 
 def std_builtin(x):
@@ -66,27 +64,26 @@ def std_builtin(x):
         Standard deviation of the list of numbers.
     """
 
-    # Define variables to be used in the function
+    # Raise value-error if input is an empty list.
+    if len(x) == 0:
+        raise ValueError('Empty sequences are not supported')
+    
+
+    # Define variables used in the function
     sum_lst = sum(x)
-    num_lst_squared = []
+    sqrt_lst = []
     N = len(x)
 
-    m = (1/N) * sum_lst                     #calculate the mean m
+    for i in x:                         # Square all elements in num_list and sum together
+        sqrt_lst.append(i**2)
+    sqrt_sum = sum(sqrt_lst)
 
-    #Square all elements in num_list and sum together
-    for i in x:
-        num_lst_squared.append(i**2)
+    mean = (1/N) * sum_lst              # Calculate the mean
+    S = (1/N) * sqrt_sum                # Calculate the mean of the squared list (S)
+    var = S - mean**2                   # Computing the variance (var)
+    sd = sqrt(var)                      # Computing the standard deviation (sd)
 
-    sum_lst_squared = sum(num_lst_squared)
-
-    # Calculate the mean of suqres S
-    S = (1/N) * sum_lst_squared
-
-    O2 = S - m**2                           # Computing the variance O2
-
-    O = sqrt(O2)                            # computing the standard deviation O 
-
-    return O
+    return sd
 
 def main():
     x = [1, 2, 3, 4, 5]
@@ -97,8 +94,7 @@ def main():
 
     std_function = np.std(x)
     
-    print(f'Deviation by loops is {looped}, and by built in functions {builtin} and using the function from numpy {std_function}')
-    return looped, builtin
+    print(f'\nDeviation by loops is: {looped}.\nDeviation by built in functions is: {builtin}.\nDeviation using numpy is: {std_function}.\n')
 
 if __name__ == "__main__":
     main()
