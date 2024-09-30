@@ -24,7 +24,6 @@ def std_loops(x):
     if len(x) == 0:
         raise ValueError('Empty sequences are not supported')
     
-
     # Define variables used in the function
     sum_lst = 0                             
     sqrt_lst = []                    
@@ -48,7 +47,6 @@ def std_loops(x):
 
     return sd
 
-
 def std_builtin(x):
     """
     Compute standard deviation of x using the built-in functions sum()
@@ -68,7 +66,6 @@ def std_builtin(x):
     if len(x) == 0:
         raise ValueError('Empty sequences are not supported')
     
-
     # Define variables used in the function
     sum_lst = sum(x)
     sqrt_lst = []
